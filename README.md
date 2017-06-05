@@ -1,55 +1,57 @@
+# Git
+Please check [Git](git.md) on git configration and operations.
 
-# GIT CONFIGURATION
+# About this example
 
-```
-  git config --global branch.autosetuprebase always
-  git config --global branch.master.rebase true
-  git config --global push.default simple
-```
+This example intends to provide a template for building micro-service project basing on spring boot + jax-rs chassis.
 
-# GIT FLOW
+## Actions at init step
 
-## Outlines
+1. change _rootProject.name_ in _settings.gradle_
+1. change _descripiton_ in all those _build.gradle_ files
+1. Execute below build tasks to download dependices 
+    ```
+    gradle clean build
+    gradle cleanIdea idea
+    gradle cleanEclipse eclipse
+    ```
+1. Use either Eclipse or Intellij IDEA open the project and refactor the package _com.upbchain.pointcoin.examplemicro_ to a proper one for this project.
+1. Reopen your project in IDE after re-generating IDE file as below:
+    ````
+    gradle cleanIdea idea
+    gradle cleanEclipse eclipse
 
-1. Anything in the master branch is deployable
-2. To work on something new, create a descriptively named branch off of master (ie: new-oauth2-scopes)
-3. Commit to that branch locally and regularly push your work to the same named branch on the server
-4. When you need feedback or help, or you think the branch is ready for merging, open a pull request
-5. After someone else has reviewed and signed off on the feature, you can merge it into master
-6. Once it is merged and pushed to master, you can and should deploy immediately
+    ````
+1. Then you can run below to start your micro-service:
+    ```
+    ./app$ gradle bootRun
+    ```
 
-## Quick Commands
+   
+## Sub Projects
+We're suggesting to use jax-rs instead of spring restful for our micro-service implementation.
+To make jerssey jax-rs api auto discovery work, there are two sub-projects defined for each micro-service, api and app.
+API project is core of the micro-service, all domain, model, service and resource itself would be defined in this project.
+App project how the micro-service api is configured and exposed, configurations except jax-rs resource api will be defined here.
 
-### 1. create branch off of master
-```
-git checkout -b dev/feature-1 origin/master
-git push -u origin dev/feature-1
-```
-### 2. download others change and merge into local
-```
-git checkout dev/feature-1
-git pull
-```
-### 3. commit local change and push change from local to server
-```
-git add .
-git commit -m '#ticket number with descriptive statement'
-git push
-```
-### 4. merge master into feature branch and solve conflict before create pull request
-```
-git fetch origin
-git merge origin/master
+## Packages
+Each micro-service deserves a dedicated root package, the nanme of micro-service root package should be
+_com.upbchain.pointcoin.<micro-service-name>_.
 
+Spring boot application itself should be defined within root package in app project so as to auto discovery can work well with convention. 
+1 sub package. If you look at the example skeleton code you would find there is a _DummyApplication_ defined in api project, this is
+because that putting this dummary application in api project can easier our api development in development stage, it is excluded during package stage.
 
-git commit -m '#ticket-number solve conflicts before merge'
-git push
-```
-### 5. create pull request as suggested [here](https://help.github.com/articles/creating-a-pull-request/)
-### 6. merge pull request as suggested [here](https://help.github.com/articles/merging-a-pull-request/)
+2 sub pacakges underneath _root pacakge_:
+ * **api**, this is the root package of the api sub project, most of the implementation and configuration about api itself should be here.
+ * **configuration**, all about spring boot configrations. API itself configuration should defined in api sub project. Application configurations like
+ security etc should define in app sub-project.
 
-# Reference
-
-1. Please check github recommend [git flow](https://help.github.com/articles/github-flow/)
-2. [Here](http://scottchacon.com/2011/08/31/github-flow.html) is another reference
+6 sub packages are suggested under api's root package for the api of each micro-service:
+ * **domain**, this is all about entities 
+ * **respository**, JPA respository. JPA is suggested.
+ * **service**, services defined here.
+ * **model**, the java respsentation of the rest model which this micro-service exposes. POJOs with JSON annotation is suggested.
+ * **resource**, JAX-RS resources defined here.
+ * **util**, utilities used in this micro-service only.
 

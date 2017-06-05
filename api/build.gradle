@@ -1,0 +1,16 @@
+description = "Crypto Pointcoin Cloud Example Micro Service - API"
+
+
+jar {
+    excludes = ["**/application.yml", "**/DummyApplication"]
+}
+
+bootRepackage {
+  excludeDevtools = true
+  
+  enabled = false
+}
+
+dependencies {
+}
+

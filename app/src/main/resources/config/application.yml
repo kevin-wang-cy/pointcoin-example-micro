@@ -1,0 +1,62 @@
+spring:
+    profiles.active: development
+
+################################  
+# development profile section  #
+################################
+
+---
+spring:
+    profiles: development
+    
+    datasource:
+        url: jdbc:h2:~/example;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        username: sa
+        password:
+        test-while-idle: true
+        validation-query: SELECT 1
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        generate-ddl: true
+
+
+endpoints:
+    health:
+        sensitive: false
+        enabled: true
+    actuator:
+        enabled: true
+
+
+###############################
+# test profile section  #
+###############################
+
+---
+spring:
+    profiles: test
+
+###############################     
+# production profile section  #
+###############################
+
+---
+spring:
+    profiles: production
+    
+
+###########################
+# default profile section #
+###########################
+---        
+logging:
+    config: classpath:logback.xml
+    level:
+        com.upbchain: DEBUG
+
+jasypt:
+    encryptor:
+        password: ${JASYPT_ENCRYPTOR_PASSWORD:}
+

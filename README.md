@@ -33,16 +33,14 @@ gradle cleanIdea idea
 gradle cleanEclipse eclipse
 ```
 1. Use either Eclipse or Intellij IDEA open the project and refactor the package _com.upbchain.pointcoin.examplemicro_ to a proper one for this project.
-
 1. Reopen your project in IDE after re-generating IDE file as below: 
 ```
 gradle cleanIdea idea
 gradle cleanEclipse eclipse
 ```
-
 1. Then you can run below to start your micro-service:
 ```
-./app$ gradle bootRun
+    ./app$ gradle bootRun
 ```
 
    

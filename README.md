@@ -24,32 +24,6 @@ gradle publish -PnexusUsername=mynexususername -PnexusPassword=mynexuspasswork
 
 ## Actions at init step
 
-* Green
-
-    Try this code:
-
-        This is an embedded code block.
-
-    Then this:
-
-        More code!
-
-* Blue
-* Red
-
-        * Green
-
-            Try this code:
-
-                This is an embedded code block.
-
-            Then this:
-
-                More code!
-
-        * Blue
-        * Red
-
 1. Change _rootProject.name_ in _settings.gradle_
 1. Change _descripiton_ in all those _build.gradle_ files
 1. Execute below build tasks to download dependices 

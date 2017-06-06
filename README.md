@@ -40,6 +40,7 @@ gradle publish -PnexusUsername=mynexususername -PnexusPassword=mynexuspasswork
     gradle cleanIdea idea
     gradle cleanEclipse eclipse
     ```
+
 1. Then you can run below to start your micro-service:
     ```
     ./app$ gradle bootRun

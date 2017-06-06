@@ -40,7 +40,7 @@ gradle cleanEclipse eclipse
 ```
 1. Then you can run below to start your micro-service:
 ```
-    ./app$ gradle bootRun
+./app$ gradle bootRun
 ```
 
    

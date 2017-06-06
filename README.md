@@ -24,8 +24,8 @@ gradle publish -PnexusUsername=mynexususername -PnexusPassword=mynexuspasswork
 
 ## Actions at init step
 
-1. change _rootProject.name_ in _settings.gradle_
-1. change _descripiton_ in all those _build.gradle_ files
+1. Change _rootProject.name_ in _settings.gradle_
+1. Change _descripiton_ in all those _build.gradle_ files
 1. Execute below build tasks to download dependices 
     ```
     gradle clean build
@@ -35,6 +35,7 @@ gradle publish -PnexusUsername=mynexususername -PnexusPassword=mynexuspasswork
 1. Use either Eclipse or Intellij IDEA open the project and refactor the package _com.upbchain.pointcoin.examplemicro_ to a proper one for this project.
 1. Reopen your project in IDE after re-generating IDE file as below
     ```
+    gradle clean build
     gradle cleanIdea idea
     gradle cleanEclipse eclipse
     ```

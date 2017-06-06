@@ -18,9 +18,8 @@ Which repository used is defined in _gradle.properties_, and credentials used to
 > Never put your credentials in source code, your can use either environment variable or gradle command line parameters to run gradle commands.
 For example:  
 
-```
-gradle publish -PnexusUsername=mynexususername -PnexusPassword=mynexuspasswork
-```
+    gradle publish -PnexusUsername=mynexususername -PnexusPassword=mynexuspasswork
+
 
 ## Actions at init step
 

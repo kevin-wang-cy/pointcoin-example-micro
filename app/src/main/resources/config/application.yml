@@ -1,0 +1,66 @@
+spring:
+    profiles.active: dev
+
+################################
+# dev profile section  #
+################################
+
+---
+spring:
+    profiles: dev
+
+    datasource:
+        url: jdbc:h2:~/example;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+        username: sa
+        password:
+        test-while-idle: true
+        validation-query: SELECT 1
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        generate-ddl: true
+
+
+endpoints:
+    health:
+        sensitive: false
+        enabled: true
+    actuator:
+        enabled: true
+
+
+###############################
+# QA profile section  #
+###############################
+
+---
+spring:
+    profiles: qa
+
+###############################
+# prod profile section  #
+###############################
+
+---
+spring:
+    profiles: prod
+
+###########################
+# default profile section #
+###########################
+---
+logging:
+    level:
+        com.upbchain: DEBUG
+        org.spring.security: DEBUG
+
+security:
+    oauth2:
+        resource:
+            filter-order: 3
+            jwt:
+                # Tells the JWT framework to fetch the public key from the authorization server during startup
+                # Note: The authorization server needs to be running...
+                key-uri: "http://localhost:8081/oauth/token_key"
+

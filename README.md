@@ -1,55 +1,129 @@
+# Git
+Please check [Git](git.md) on git configration and operations.
 
-# GIT CONFIGURATION
+# About this example
+
+This example intends to provide a template for building micro-service project basing on spring boot + jax-rs chassis.
+
+The build used in the project is [Gradle](https://gradle.org/), please go to [How to install Gradle](https://gradle.org/install) if you don't have it installed in your box.
+
+Of course, you don't have to install Gradle to build this project. you can simply use the **gradlew** (or **gradlew.bat** on windows) commands in the project root for all command
+where **gradle** is used below.
+
+## Respository, a.k.a Artifactory
+A local maven repository with mirror of maven-center is suggested.
+Which repository used is defined in _gradle.properties_, and credentials used to publish artifacts into respository is defined there either.
+
+**Notes:**
+> Never put your credentials in source code, your can use either environment variable or gradle command line parameters to run gradle commands.
+For example:  
 
 ```
-  git config --global branch.autosetuprebase always
-  git config --global branch.master.rebase true
-  git config --global push.default simple
+gradle publish -PnexusUsername=mynexususername -PnexusPassword=mynexuspasswork
 ```
 
-# GIT FLOW
+## Actions at init step
 
-## Outlines
+1. change _rootProject.name_ in _settings.gradle_
+1. change _descripiton_ in all those _build.gradle_ files
+1. Execute below build tasks to download dependices 
+    ```
+    gradle clean build
+    gradle cleanIdea idea
+    gradle cleanEclipse eclipse
+    ```
+1. Use either Eclipse or Intellij IDEA open the project and refactor the package _com.upbchain.pointcoin.examplemicro_ to a proper one for this project.
+1. Reopen your project in IDE after re-generating IDE file as below:
+    ````
+    gradle cleanIdea idea
+    gradle cleanEclipse eclipse
 
-1. Anything in the master branch is deployable
-2. To work on something new, create a descriptively named branch off of master (ie: new-oauth2-scopes)
-3. Commit to that branch locally and regularly push your work to the same named branch on the server
-4. When you need feedback or help, or you think the branch is ready for merging, open a pull request
-5. After someone else has reviewed and signed off on the feature, you can merge it into master
-6. Once it is merged and pushed to master, you can and should deploy immediately
+    ````
+1. Then you can run below to start your micro-service:
+    ```
+    ./app$ gradle bootRun
+    ```
 
-## Quick Commands
+   
+## Sub Projects
+We're suggesting to use jax-rs instead of spring restful for our micro-service implementation.
+To make jerssey jax-rs api auto discovery work, there are two sub-projects defined for each micro-service, api and app.
+API project is core of the micro-service, all domain, model, service and resource itself would be defined in this project.
+App project, is about how the micro-service api is configured and exposed, configurations except jax-rs resource api will be defined here.
 
-### 1. create branch off of master
+**Note**
+> By default, the /api/ endpoint in api sub project doesn't have any security protectation, it means that you can test your api endpoints 
+easily in api project. If you want to test security protection annotation, you should better run the app sub project which by default uses
+the jwt token for authentication. Of course to run app project sucessfully you need start up the authentication & authorization server first
+and then change the jwt token_key url to the correct one in app's _application.yml_.
+
+## Packages
+Each micro-service deserves a dedicated root package, the nanme of micro-service root package should be
+_com.upbchain.pointcoin.<micro-service-name>_.
+
+Spring boot application itself should be defined within root package in app project so as to auto discovery can work well with convention. 
+1 sub package. If you look at the example skeleton code you would find there is a _DummyApplication_ defined in api project, this is
+because that putting this dummary application in api project can easier our api development in development stage, it is excluded during package stage.
+
+2 sub pacakges underneath _root pacakge_:
+ * **api**, this is the root package of the api sub project, most of the implementation and configuration about api itself should be here.
+ * **configuration**, all about spring boot configrations. API itself configuration should defined in api sub project. Application configurations like
+ security etc should define in app sub-project.
+
+6 sub packages are suggested under api's root package for the api of each micro-service:
+ * **domain**, this is all about entities 
+ * **respository**, JPA respository. JPA is suggested.
+ * **service**, services defined here.
+ * **model**, the java respsentation of the rest model which this micro-service exposes. POJOs with JSON annotation is suggested.
+ * **resource**, JAX-RS resources defined here.
+ * **util**, utilities used in this micro-service only.
+
+## Tips for development
+### Continous Development
+For those you would like to continuous development without restart, and if you like commandline way to run application,
+you can open two terminals, in the first terminal execute below command to lunch your application:
+```bash
+gradle bootRun
 ```
-git checkout -b dev/feature-1 origin/master
-git push -u origin dev/feature-1
+Of course you can use below_Debug & JVM Options_ to lunch the application in debug mode so as to you can debug on the fly.
+
+And use below command to build the project in another terminal:
+```bash
+gradle build --continous
 ```
-### 2. download others change and merge into local
+Above command will halt the build and execute build automatically each time after you change the source code, and thereafter the applicaiton will reload automactically
+without breaking your debug breakpoints.
+
+### Debug & JVM Options
 ```
-git checkout dev/feature-1
-git pull
+gradle bootRun -PjvmArgs="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"
 ```
-### 3. commit local change and push change from local to server
-```
-git add .
-git commit -m '#ticket number with descriptive statement'
-git push
-```
-### 4. merge master into feature branch and solve conflict before create pull request
-```
-git fetch origin
-git merge origin/master
 
 
-git commit -m '#ticket-number solve conflicts before merge'
-git push
+## Actions to publish to Artifcatory
+With the right respository url configured, you can publish artifacts into maven repository as below:
+1. Got the the app sub project
+1. Execute below command if you want to publish the snapshot version
+    ```bash
+    gradle publish -PnexusUsername=yourusername -PnexusPassword=yourpassowrd
+    ```
+1. Or execute below command if you want to publish a release version
+    ```
+    gradle publish -PnexusUsername=yourusername -PnexusPassword=yourpassowrd -PreleaseVersion=1.0.0
+    ```
+
+## Integrations
+
+### git.properties
+This template has integrated git plugin which generates a git.proerties basing on your source code repository
+and exposes git info through actuator's _/info_ endpoints as below:
+```json
+    "git": {
+        "branch": "dev/CPC-5",
+        "commit": {
+            "id": "612f31b",
+            "time": "2017-06-05T06:28:03.000+0000"
+        }
+    }
 ```
-### 5. create pull request as suggested [here](https://help.github.com/articles/creating-a-pull-request/)
-### 6. merge pull request as suggested [here](https://help.github.com/articles/merging-a-pull-request/)
-
-# Reference
-
-1. Please check github recommend [git flow](https://help.github.com/articles/github-flow/)
-2. [Here](http://scottchacon.com/2011/08/31/github-flow.html) is another reference
 

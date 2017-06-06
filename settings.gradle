@@ -1,0 +1,4 @@
+rootProject.name='pointcoin-example-micro'
+
+include 'api'
+include 'app'

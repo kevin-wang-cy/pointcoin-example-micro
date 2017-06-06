@@ -1,0 +1,55 @@
+description = "Crypto Pointcoin Cloud Example Micro Service - App"
+
+springBoot {
+    excludeDevtools = true
+    
+    executable = true
+    
+    requiresUnpack = ["com.upbchain.pointcoin:api"]
+}
+
+dependencies {
+    compile(project(":api"))
+
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile("org.springframework.security:spring-security-jwt")
+    compile("org.springframework.security.oauth:spring-security-oauth2") {
+        exclude(module: 'jackson-mapper-asl') // We already have a more recent jackson via Spring Boot
+    }
+}
+
+
+task buildDeploy(type: Copy, dependsOn: assemble) {
+    def buildDeployDir = file("build/deploy/")
+
+    outputs.dir buildDeployDir
+
+    from jar
+    from "src/main/deploy"
+    rename "${project.archivesBaseName}.(.*).jar", "${project.archivesBaseName}.jar"
+    rename "app.conf", "${project.archivesBaseName}.config"
+    into buildDeployDir
+}
+
+task tarDeploy(type: Tar) {
+    archiveName = "${project.archivesBaseName}-${project.version}.tar"
+
+    into ("/") {
+        from buildDeploy.outputs.files
+    }
+
+    destinationDir file("build/dist")
+    extension "tar"
+    compression = Compression.GZIP
+}
+
+publishing {
+    publications {
+        mavenAppDeploy(MavenPublication) {
+            groupId "${project.group}"
+           artifactId "${project.archivesBaseName}"
+
+            artifact source: tarDeploy, extension: "tar"
+        }
+    }
+}

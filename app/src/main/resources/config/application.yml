@@ -1,14 +1,14 @@
 spring:
-    profiles.active: development
+    profiles.active: dev
 
-################################  
-# development profile section  #
+################################
+# dev profile section  #
 ################################
 
 ---
 spring:
-    profiles: development
-    
+    profiles: dev
+
     datasource:
         url: jdbc:h2:~/example;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
         username: sa
@@ -31,32 +31,36 @@ endpoints:
 
 
 ###############################
-# test profile section  #
+# QA profile section  #
 ###############################
 
 ---
 spring:
-    profiles: test
+    profiles: qa
 
-###############################     
-# production profile section  #
+###############################
+# prod profile section  #
 ###############################
 
 ---
 spring:
-    profiles: production
-    
+    profiles: prod
 
 ###########################
 # default profile section #
 ###########################
----        
+---
 logging:
-    config: classpath:logback.xml
     level:
         com.upbchain: DEBUG
+        org.spring.security: DEBUG
 
-jasypt:
-    encryptor:
-        password: ${JASYPT_ENCRYPTOR_PASSWORD:}
+security:
+    oauth2:
+        resource:
+            filter-order: 3
+            jwt:
+                # Tells the JWT framework to fetch the public key from the authorization server during startup
+                # Note: The authorization server needs to be running...
+                key-uri: "http://localhost:8081/oauth/token_key"
 

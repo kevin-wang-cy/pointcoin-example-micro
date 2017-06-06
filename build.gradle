@@ -1,16 +1,21 @@
 buildscript {
     ext {
         springBootVersion = '1.5.3.RELEASE'
+        gradleGitVersion = '1.4.17'
     }
 
     repositories {
         maven {
             url "${nexusPublicUrl}"
         }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
 
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:${gradleGitVersion}")
     }
 }
 
@@ -36,6 +41,7 @@ allprojects {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
+    apply plugin: "com.gorylenko.gradle-git-properties"
 
     apply plugin: 'idea'
     apply plugin: 'eclipse'
@@ -44,7 +50,7 @@ subprojects {
         archivesBaseName = "${rootProject.name}-${project.name}"
         nexusRepoUrl = project.properties.containsKey("releaseVersion") ? "${nexusReleaseUrl}" : "${nexusSnapshotUrl}"
 
-        swaggerVersion = '1.5.13'
+        swaggerCoreVersion = '1.5.13'
     }
 
     sourceCompatibility = 1.8
@@ -54,6 +60,14 @@ subprojects {
         baseName "${project.archivesBaseName}"
     }
 
+
+    bootRun {
+        addResources = true
+
+        if ( project.hasProperty('jvmArgs') ) {
+            jvmArgs project.jvmArgs.split('\\s+')
+        }
+    }
 
     repositories {
         maven {
@@ -77,7 +91,7 @@ subprojects {
         compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
         compile("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
 
-        compile("io.swagger:swagger-jersey2-jaxrs:${swaggerVersion}")
+        compile("io.swagger:swagger-jersey2-jaxrs:${swaggerCoreVersion}")
 
         runtime('com.h2database:h2')
         runtime('org.springframework.boot:spring-boot-devtools')
@@ -96,7 +110,7 @@ subprojects {
         publications {
             mavenJava(MavenPublication) {
                 groupId "${project.group}"
-                artifactId "${rootProject.name}-${project.name}"
+                artifactId "${archivesBaseName}"
                 from components.java
             }
         }

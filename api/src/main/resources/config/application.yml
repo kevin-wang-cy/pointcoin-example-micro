@@ -1,13 +1,13 @@
 spring:
-    profiles.active: development
+    profiles.active: dev
 
 ################################  
-# development profile section  #
+# dev profile section  #
 ################################
 
 ---
 spring:
-    profiles: development
+    profiles: dev
     
     datasource:
         url: jdbc:h2:~/example;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -31,20 +31,20 @@ endpoints:
 
 
 ###############################
-# test profile section  #
+# QA profile section  #
 ###############################
 
 ---
 spring:
-    profiles: test
+    profiles: qa
 
 ###############################     
-# production profile section  #
+# prod profile section  #
 ###############################
 
 ---
 spring:
-    profiles: production
+    profiles: prod
     
 
 ###########################
@@ -54,8 +54,4 @@ spring:
 logging:
     level:
         com.upbchain: DEBUG
-
-jasypt:
-    encryptor:
-        password: ${JASYPT_ENCRYPTOR_PASSWORD:}
 

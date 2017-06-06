@@ -10,6 +10,12 @@ springBoot {
 
 dependencies {
     compile(project(":api"))
+
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile("org.springframework.security:spring-security-jwt")
+    compile("org.springframework.security.oauth:spring-security-oauth2") {
+        exclude(module: 'jackson-mapper-asl') // We already have a more recent jackson via Spring Boot
+    }
 }
 
 
@@ -20,8 +26,8 @@ task buildDeploy(type: Copy, dependsOn: assemble) {
 
     from jar
     from "src/main/deploy"
-    rename "${project.archivesBaseName}.(.*).jar", "pointcoin-wallet-api.jar"
-    rename "pointcoin-wallet-api.conf", "pointcoin-wallet-api.conf"
+    rename "${project.archivesBaseName}.(.*).jar", "${project.archivesBaseName}.jar"
+    rename "app.conf", "${project.archivesBaseName}.config"
     into buildDeployDir
 }
 
@@ -41,7 +47,7 @@ publishing {
     publications {
         mavenAppDeploy(MavenPublication) {
             groupId "${project.group}"
-            artifactId "${project.archivesBaseName}-pkg"
+           artifactId "${project.archivesBaseName}"
 
             artifact source: tarDeploy, extension: "tar"
         }

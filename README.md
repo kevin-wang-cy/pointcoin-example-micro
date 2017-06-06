@@ -66,10 +66,12 @@ Spring boot application itself should be defined within root package in app proj
 because that putting this dummary application in api project can easier our api development in development stage, it is excluded during package stage.
 
 2 sub pacakges underneath _root pacakge_:
+
 * **api**, this is the root package of the api sub project, most of the implementation and configuration about api itself should be here.
 * **configuration**, all about spring boot configrations. API itself configuration should defined in api sub project. Application configurations like security etc should define in app sub-project.
 
 6 sub packages are suggested under api's root package for the api of each micro-service:
+
  * **domain**, this is all about entities 
  * **respository**, JPA respository. JPA is suggested.
  * **service**, services defined here.

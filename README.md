@@ -103,6 +103,7 @@ gradle bootRun -PjvmArgs="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend
 
 ## Actions to publish to Artifcatory
 With the right respository url configured, you can publish artifacts into maven repository as below:
+
 1. Got the the app sub project
 1. Execute below command if you want to publish the snapshot version
     ```bash

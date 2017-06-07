@@ -78,7 +78,7 @@ because that putting this dummary application in api project can easier our api 
  * **util**, utilities used in this micro-service only.
 
 ## Tips for development
-### Continous Development
+### Continuous Development
 For those you would like to continuous development without restart, and if you like commandline way to run application,
 you can open two terminals, in the first terminal execute below command to lunch your application:
 ```bash
@@ -88,7 +88,7 @@ Of course you can use below_Debug & JVM Options_ to lunch the application in deb
 
 And use below command to build the project in another terminal:
 ```bash
-gradle build --continous
+gradle build --continuous
 ```
 Above command will halt the build and execute build automatically each time after you change the source code, and thereafter the applicaiton will reload automactically
 without breaking your debug breakpoints.
@@ -126,3 +126,8 @@ and exposes git info through actuator's _/info_ endpoints as below:
         }
     }
 ```
+
+### JPA
+JPA is suggested to implement persistent layer. _AbstractAuditableEntity_ should be your base class for all domain
+entities so as to jpa auditor enabled by default. The _EchoEntity_ and its all relevants is an example of this.
+

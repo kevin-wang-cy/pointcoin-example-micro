@@ -55,3 +55,8 @@ logging:
     level:
         com.upbchain: DEBUG
 
+security:
+    ignored: /**
+    basic.enabled: false
+management:
+    security.enabled: false

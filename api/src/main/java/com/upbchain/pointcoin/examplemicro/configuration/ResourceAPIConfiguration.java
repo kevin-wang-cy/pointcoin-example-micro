@@ -4,12 +4,17 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonGenerator.Feature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import io.swagger.jaxrs.config.BeanConfig;
+import io.swagger.jaxrs.listing.ApiListingResource;
+import io.swagger.jaxrs.listing.SwaggerSerializers;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.PostConstruct;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.ext.ContextResolver;
 import javax.ws.rs.ext.Provider;
@@ -19,13 +24,41 @@ import javax.ws.rs.ext.Provider;
 public class ResourceAPIConfiguration extends ResourceConfig {
     private static final Logger LOG = LoggerFactory.getLogger(ResourceAPIConfiguration.class);
 
+    private static final String RESOURCE_PACKAGE = "com.upbchain.pointcoin.examplemicro.api.resource";
+    private static final String MODEL_PACKAGE = "com.upbchain.pointcoin.examplemicro.api.model";
+
     @Autowired
     public ResourceAPIConfiguration(ObjectMapper objectMapper) {
-        // register endpoints
-        packages("com.upbchain.pointcoin.examplemicro.api.resource");
+        // API EndPoints Registration
+        registerEndPoints();
 
         // register jackson for json
         register(new ObjectMapperContextResolver(objectMapper));
+    }
+
+    @PostConstruct
+    public void init() {
+        this.configureSwagger();
+    }
+
+    private void registerEndPoints() {
+        packages(RESOURCE_PACKAGE);
+    }
+
+    private void configureSwagger() {
+        this.register(ApiListingResource.class);
+        this.register(SwaggerSerializers.class);
+
+        BeanConfig config = new BeanConfig();
+        config.setConfigId("springboot-jersey-swagger-docker-example");
+        config.setTitle("Spring Boot + Jersey + Swagger + Docker Example");
+        config.setVersion("v1");
+        config.setContact("Kevin Wang kevin.wang.cy@gmail.com");
+        config.setSchemes(new String[] { "http", "https" });
+        config.setBasePath("/api");
+        config.setResourcePackage(RESOURCE_PACKAGE);
+        config.setPrettyPrint(true);
+        config.setScan(true);
     }
 
     @Provider

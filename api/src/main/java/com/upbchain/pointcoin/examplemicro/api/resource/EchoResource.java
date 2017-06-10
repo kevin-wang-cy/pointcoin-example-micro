@@ -2,6 +2,7 @@ package com.upbchain.pointcoin.examplemicro.api.resource;
 
 import com.upbchain.pointcoin.examplemicro.api.model.Echo;
 import com.upbchain.pointcoin.examplemicro.api.service.EchoService;
+import io.swagger.annotations.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ import java.util.Optional;
 
 @Component
 @Path("/echo")
+@Api(value = "Echo resource", produces = "application/json")
 public class EchoResource {
     private static final Logger LOG = LoggerFactory.getLogger(EchoResource.class);
 
@@ -27,7 +29,12 @@ public class EchoResource {
     @GET
     @Path("/{uuid}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getEchoByUUID(@PathParam("uuid") String uuid) {
+    @ApiOperation(value = "Gets a particular Echo by it's unique identifier", response = Echo.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Echo resource found"),
+            @ApiResponse(code = 404, message = "Echo resource not found")
+    })
+    public Response getEchoByUUID(@ApiParam(value = "Echo's uuid", required = true) @PathParam("uuid") String uuid) {
         Echo echo = echoService.findByUUID(uuid);
 
         if (echo == null) {
@@ -40,6 +47,13 @@ public class EchoResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(value = "Create an Echo resource")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Echo resource created", response = Echo.class, responseHeaders = {
+                    @ResponseHeader(name = "Location", description = "The URL to retrieve created Echo resource", response = String.class)
+            }),
+            @ApiResponse(code = 500, message = "Exception while creating Echo resource.", response = Exception.class)
+    })
     public Response createEcho(@NotNull Echo echo, @Context UriInfo uriInfo) {
         try {
             Echo result = echoService.createEcho(echo);

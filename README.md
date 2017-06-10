@@ -39,9 +39,12 @@ For example:
 
 1. Then you can run below to start your micro-service:
 
-        ./app$ gradle bootRun
+        gradle bootRun
 
-
+**Note**
+> _app_ sub project can only be run successfully when your authentication and authorization server is up as by defaut
+the _app_ has defined as OAuth2 Resource server and needs download the public key from there at start up.
+But you can start up _api_ sub project without problem.
    
 ## Sub Projects
 We're suggesting to use jax-rs instead of spring restful for our micro-service implementation.
@@ -130,4 +133,10 @@ and exposes git info through actuator's _/info_ endpoints as below:
 ### JPA
 JPA is suggested to implement persistent layer. _AbstractAuditableEntity_ should be your base class for all domain
 entities so as to jpa auditor enabled by default. The _EchoEntity_ and its all relevants is an example of this.
+
+### Swagger API & Swagger UI
+Swagger 2.0 API and UI are integrated by default. With API sub project booted, you can access the swagger ui as below:
+```
+http://localhost:8080/swagger-ui/index.html
+```
 

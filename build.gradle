@@ -93,7 +93,10 @@ subprojects {
         compile("com.fasterxml.jackson.datatype:jackson-datatype-jdk8")
 
         compile("io.swagger:swagger-jersey2-jaxrs:${swaggerCoreVersion}")
-
+        compile('commons-codec:commons-codec:1.10',
+                'mysql:mysql-connector-java:5.1.41',
+                'com.alibaba:fastjson:1.2.28',
+                'org.springframework.boot:spring-boot-starter-redis:1.4.6.RELEASE')
         runtime('com.h2database:h2')
         runtime('org.springframework.boot:spring-boot-devtools')
 
@@ -102,7 +105,7 @@ subprojects {
 
     eclipse {
         project {
-            name = "${project.name}"
+            name = "${rootProject.name}-${project.name}"
         }
     }
 

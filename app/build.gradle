@@ -26,7 +26,7 @@ task buildDeploy(type: Copy, dependsOn: assemble) {
     from jar
     from "src/main/deploy"
     rename "${project.archivesBaseName}.(.*).jar", "${project.archivesBaseName}.jar"
-    rename "app.conf", "${project.archivesBaseName}.config"
+    rename "app.conf", "${project.archivesBaseName}.conf"
     into buildDeployDir
 }
 
@@ -46,7 +46,7 @@ publishing {
     publications {
         mavenAppDeploy(MavenPublication) {
             groupId "${project.group}"
-           artifactId "${project.archivesBaseName}"
+           artifactId "${project.archivesBaseName}-pkg"
 
             artifact source: tarDeploy, extension: "tar"
         }

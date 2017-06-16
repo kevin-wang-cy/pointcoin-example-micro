@@ -17,7 +17,7 @@ public class EchoEntityId implements Serializable {
     @Column(updatable = false, nullable = false)
     private String whom;
 
-    @Column(updatable = false, nullable = false)
+    @Column(name="sendat", updatable = false, nullable = false)
     private ZonedDateTime when;
 
     private EchoEntityId() {

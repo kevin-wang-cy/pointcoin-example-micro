@@ -6,8 +6,8 @@
     <content url="file://$MODULE_DIR$/">
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" isTestSource="false"/>
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false"/>
-      <excludeFolder url="file://$MODULE_DIR$/.gradle"/>
       <excludeFolder url="file://$MODULE_DIR$/build"/>
+      <excludeFolder url="file://$MODULE_DIR$/.gradle"/>
     </content>
     <orderEntry type="sourceFolder" forTests="false"/>
     <orderEntry type="module-library" scope="PROVIDED">
@@ -106,6 +106,50 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/io.swagger/swagger-jersey2-jaxrs/1.5.13/d027998c53edf7eb6007e2afb9889643963f6948/swagger-jersey2-jaxrs-1.5.13-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/11fb3d88ae7e3b757d70237064210ceb954a5a04/commons-codec-1.10-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.41/b0878056f15616989144d6114d36d3942321d0d1/mysql-connector-java-5.1.41.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.41/df70591c4f2b25c380602587a9ddef92086d2ca8/mysql-connector-java-5.1.41-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.2.28/91dd221e7bc7fbf726ba6fa92735f311127b021d/fastjson-1.2.28.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.2.28/a106bcabc8caa35db1025466d113d785fca0100c/fastjson-1.2.28-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-redis/1.4.6.RELEASE/ad526c0600ccc6d5423fcd794c4a5f78df3d078e/spring-boot-starter-redis-1.4.6.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-redis/1.4.6.RELEASE/921ffc121f8756f98fc1106fb04db2509bf12acd/spring-boot-starter-redis-1.4.6.RELEASE-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -458,6 +502,28 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.media/jersey-media-multipart/2.1/94ac34ece78494ce88cfa03207ad3f9e614e17e/jersey-media-multipart-2.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-redis/1.8.3.RELEASE/8251fa6c84947a683bd849622eca60d60ecf6c97/spring-data-redis-1.8.3.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-redis/1.8.3.RELEASE/24a9e735cb220187cf2309c9827f774e44ddd362/spring-data-redis-1.8.3.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/292bc9cc26553acd3cccc26f2f95620bf88a04c2/jedis-2.9.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/6d75e2498cd82c02665df5f9d7a77d0b5e398157/jedis-2.9.0-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1078,6 +1144,50 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-keyvalue/1.2.3.RELEASE/da160c941dc061aba19592fa2cb45af82d29134e/spring-data-keyvalue-1.2.3.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-keyvalue/1.2.3.RELEASE/3da14109521cd7da60b36f7697fd29bbfe003aba/spring-data-keyvalue-1.2.3.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.8.RELEASE/65ba0d05277ea25e166a493508ed13b3fd7c7e10/spring-oxm-4.3.8.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.8.RELEASE/8d7962c543305c968dc84cee87ada8dd9d9bbc5e/spring-oxm-4.3.8.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.8.RELEASE/d86cbaa600b1be941a2fb146003e3029a8738577/spring-context-support-4.3.8.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.8.RELEASE/480dfd12b1a46240af7b269be6c82ac7068eb212/spring-context-support-4.3.8.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/e5f4f28f19d57716fbc3989d7a357ebf1e454fea/commons-pool2-2.4.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/2c9dcae4975caff05a627b99fae76e6fef2a3a0e/commons-pool2-2.4.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library>
+        <CLASSES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/ccedfbacef4a6515d2983e3f89ed753d5d4fb665/logback-classic-1.1.11.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -1499,6 +1609,50 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/io.swagger/swagger-jersey2-jaxrs/1.5.13/d027998c53edf7eb6007e2afb9889643963f6948/swagger-jersey2-jaxrs-1.5.13-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/11fb3d88ae7e3b757d70237064210ceb954a5a04/commons-codec-1.10-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.41/b0878056f15616989144d6114d36d3942321d0d1/mysql-connector-java-5.1.41.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.41/df70591c4f2b25c380602587a9ddef92086d2ca8/mysql-connector-java-5.1.41-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.2.28/91dd221e7bc7fbf726ba6fa92735f311127b021d/fastjson-1.2.28.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.2.28/a106bcabc8caa35db1025466d113d785fca0100c/fastjson-1.2.28-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-redis/1.4.6.RELEASE/ad526c0600ccc6d5423fcd794c4a5f78df3d078e/spring-boot-starter-redis-1.4.6.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-redis/1.4.6.RELEASE/921ffc121f8756f98fc1106fb04db2509bf12acd/spring-boot-starter-redis-1.4.6.RELEASE-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -1879,6 +2033,28 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-redis/1.8.3.RELEASE/8251fa6c84947a683bd849622eca60d60ecf6c97/spring-data-redis-1.8.3.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-redis/1.8.3.RELEASE/24a9e735cb220187cf2309c9827f774e44ddd362/spring-data-redis-1.8.3.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/292bc9cc26553acd3cccc26f2f95620bf88a04c2/jedis-2.9.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/6d75e2498cd82c02665df5f9d7a77d0b5e398157/jedis-2.9.0-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/1.5.3.RELEASE/5fedde3489afd5dbd82f9122aaec4c9f6da3d564/spring-boot-1.5.3.RELEASE.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -2493,6 +2669,50 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-keyvalue/1.2.3.RELEASE/da160c941dc061aba19592fa2cb45af82d29134e/spring-data-keyvalue-1.2.3.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-keyvalue/1.2.3.RELEASE/3da14109521cd7da60b36f7697fd29bbfe003aba/spring-data-keyvalue-1.2.3.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.8.RELEASE/65ba0d05277ea25e166a493508ed13b3fd7c7e10/spring-oxm-4.3.8.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.8.RELEASE/8d7962c543305c968dc84cee87ada8dd9d9bbc5e/spring-oxm-4.3.8.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.8.RELEASE/d86cbaa600b1be941a2fb146003e3029a8738577/spring-context-support-4.3.8.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.8.RELEASE/480dfd12b1a46240af7b269be6c82ac7068eb212/spring-context-support-4.3.8.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/e5f4f28f19d57716fbc3989d7a357ebf1e454fea/commons-pool2-2.4.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/2c9dcae4975caff05a627b99fae76e6fef2a3a0e/commons-pool2-2.4.2-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/ch.qos.logback/logback-classic/1.1.11/ccedfbacef4a6515d2983e3f89ed753d5d4fb665/logback-classic-1.1.11.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -2920,6 +3140,50 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/11fb3d88ae7e3b757d70237064210ceb954a5a04/commons-codec-1.10-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.41/b0878056f15616989144d6114d36d3942321d0d1/mysql-connector-java-5.1.41.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/mysql/mysql-connector-java/5.1.41/df70591c4f2b25c380602587a9ddef92086d2ca8/mysql-connector-java-5.1.41-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.2.28/91dd221e7bc7fbf726ba6fa92735f311127b021d/fastjson-1.2.28.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/com.alibaba/fastjson/1.2.28/a106bcabc8caa35db1025466d113d785fca0100c/fastjson-1.2.28-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-redis/1.4.6.RELEASE/ad526c0600ccc6d5423fcd794c4a5f78df3d078e/spring-boot-starter-redis-1.4.6.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-redis/1.4.6.RELEASE/921ffc121f8756f98fc1106fb04db2509bf12acd/spring-boot-starter-redis-1.4.6.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-test/1.5.3.RELEASE/c04072c6637e9a7798ef152dc04581d2644b56ed/spring-boot-starter-test-1.5.3.RELEASE.jar!/"/>
         </CLASSES>
         <JAVADOC/>
@@ -3277,6 +3541,28 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.glassfish.jersey.media/jersey-media-multipart/2.1/94ac34ece78494ce88cfa03207ad3f9e614e17e/jersey-media-multipart-2.1-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-redis/1.8.3.RELEASE/8251fa6c84947a683bd849622eca60d60ecf6c97/spring-data-redis-1.8.3.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-redis/1.8.3.RELEASE/24a9e735cb220187cf2309c9827f774e44ddd362/spring-data-redis-1.8.3.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/292bc9cc26553acd3cccc26f2f95620bf88a04c2/jedis-2.9.0.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/redis.clients/jedis/2.9.0/6d75e2498cd82c02665df5f9d7a77d0b5e398157/jedis-2.9.0-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>
@@ -4001,6 +4287,50 @@
         <JAVADOC/>
         <SOURCES>
           <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.jvnet.mimepull/mimepull/1.8/cae16f7cf52f11f72894493f23c108839247c950/mimepull-1.8-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-keyvalue/1.2.3.RELEASE/da160c941dc061aba19592fa2cb45af82d29134e/spring-data-keyvalue-1.2.3.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-keyvalue/1.2.3.RELEASE/3da14109521cd7da60b36f7697fd29bbfe003aba/spring-data-keyvalue-1.2.3.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.8.RELEASE/65ba0d05277ea25e166a493508ed13b3fd7c7e10/spring-oxm-4.3.8.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-oxm/4.3.8.RELEASE/8d7962c543305c968dc84cee87ada8dd9d9bbc5e/spring-oxm-4.3.8.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.8.RELEASE/d86cbaa600b1be941a2fb146003e3029a8738577/spring-context-support-4.3.8.RELEASE.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context-support/4.3.8.RELEASE/480dfd12b1a46240af7b269be6c82ac7068eb212/spring-context-support-4.3.8.RELEASE-sources.jar!/"/>
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/e5f4f28f19d57716fbc3989d7a357ebf1e454fea/commons-pool2-2.4.2.jar!/"/>
+        </CLASSES>
+        <JAVADOC/>
+        <SOURCES>
+          <root url="jar:///home/kwang/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/2c9dcae4975caff05a627b99fae76e6fef2a3a0e/commons-pool2-2.4.2-sources.jar!/"/>
         </SOURCES>
       </library>
     </orderEntry>

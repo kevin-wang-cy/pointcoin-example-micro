@@ -21,8 +21,6 @@ dependencies {
 task buildDeploy(type: Copy, dependsOn: assemble) {
     def buildDeployDir = file("build/deploy/")
 
-    outputs.dir buildDeployDir
-
     from jar
     from "src/main/deploy"
     rename "${project.archivesBaseName}.(.*).jar", "${project.archivesBaseName}.jar"
@@ -45,7 +43,7 @@ task tarDeploy(type: Tar) {
 publishing {
     publications {
         mavenAppDeploy(MavenPublication) {
-            groupId "${project.group}"
+           groupId "${project.group}"
            artifactId "${project.archivesBaseName}-pkg"
 
             artifact source: tarDeploy, extension: "tar"

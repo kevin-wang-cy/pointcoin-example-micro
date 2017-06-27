@@ -60,6 +60,10 @@ subprojects {
         baseName "${project.archivesBaseName}"
     }
 
+    task sourceJar(type: Jar) {
+        baseName "${project.archivesBaseName}"
+        from sourceSets.main.allSource
+    }
 
     bootRun {
         addResources = true
@@ -115,7 +119,12 @@ subprojects {
             mavenJava(MavenPublication) {
                 groupId "${project.group}"
                 artifactId "${archivesBaseName}"
+
                 from components.java
+
+                artifact sourceJar {
+                    classifier "sources"
+                }
             }
         }
         repositories {

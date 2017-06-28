@@ -29,6 +29,43 @@ endpoints:
     actuator:
         enabled: true
 
+###############################
+# mysql profile section  #
+###############################
+
+---
+spring:
+    profiles: mysql
+
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://${POINTCOIN_MYSQL_HOST:${MYSQL_PORT_3306_TCP_ADDR:127.0.0.1}}:${POINTCOIN_MYSQL_PORT:${MYSQL_PORT_3306_TCP_PORT:3306}}/${POINTCOIN_MYSQL_DATABASE:${MYSQL_ENV_MYSQL_DATABASE:example1db}}?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+        username: ${POINTCOIN_MYSQL_USER:${MYSQL_ENV_MYSQL_USER:example1}}
+        password: ${POINTCOIN_MYSQL_PASSWORD:${MYSQL_ENV_MYSQL_PASSWORD:123456}}
+
+        #连接池的配置信息
+        initial-size: 5
+        min-idle: 5
+        max-active: 20
+        max-wait: 60000
+        time-between-eviction-runs-millis: 60000
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 1 FROM DUAL
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        pool-prepared-statements: true
+        max-pool-prepared-statement-per-connection-size: 20
+        filters: stat,wall,log4j
+        connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+        generate-ddl: true
+
 
 ###############################
 # QA profile section  #
@@ -46,6 +83,7 @@ spring:
 spring:
     profiles: prod
 
+
 ###########################
 # default profile section #
 ###########################
@@ -62,5 +100,11 @@ security:
             jwt:
                 # Tells the JWT framework to fetch the public key from the authorization server during startup
                 # Note: The authorization server needs to be running...
-                key-uri: "http://localhost:8081/oauth/token_key"
+                key-uri: ${POINTCOIN_UAA_TOKENKEY_URI:http://localhost:8081/oauth/token_key}
+jasypt:
+    encryptor:
+        password: ${JASYPT_ENCRYPTOR_PASSWORD:}
 
+pointcoin:
+  app:
+    alias: ${POINTCOIN_APP_ALIAS:${APP_ALIAS:Default}}

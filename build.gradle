@@ -51,6 +51,11 @@ subprojects {
         nexusRepoUrl = project.properties.containsKey("releaseVersion") ? "${nexusReleaseUrl}" : "${nexusSnapshotUrl}"
 
         swaggerCoreVersion = '1.5.13'
+
+        jasyptBootVersion = '1.10'
+
+        mysqlConnectorVersion = "5.1.40"
+        druidVersion = "1.0.27"
     }
 
     sourceCompatibility = 1.8

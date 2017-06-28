@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.id=":app:test" external.linked.project.path="$MODULE_DIR$/../../../app" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="com.upbchain.pointcoin" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output-test url="file://$MODULE_DIR$/../../../app/build/classes/test" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../app/src/test">
@@ -20,10 +25,12 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.8.8" level="project" />
     <orderEntry type="library" name="Gradle: io.swagger:swagger-jersey2-jaxrs:1.5.13" level="project" />
     <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.10" level="project" />
-    <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:5.1.41" level="project" />
+    <orderEntry type="library" name="Gradle: mysql:mysql-connector-java:5.1.40" level="project" />
     <orderEntry type="library" name="Gradle: com.alibaba:fastjson:1.2.28" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-redis:1.4.6.RELEASE" level="project" />
     <orderEntry type="module" module-name="api_main" />
+    <orderEntry type="library" name="Gradle: com.alibaba:druid:1.0.27" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.ulisesbocchio:jasypt-spring-boot-starter:1.10" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-jwt:1.0.7.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security.oauth:spring-security-oauth2:2.0.13.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-test:1.5.3.RELEASE" level="project" />
@@ -63,6 +70,7 @@
     <orderEntry type="library" name="Gradle: redis.clients:jedis:2.9.0" level="project" />
     <orderEntry type="library" name="Gradle: com.h2database:h2:1.4.194" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-devtools:1.5.3.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.ulisesbocchio:jasypt-spring-boot:1.10" level="project" />
     <orderEntry type="library" name="Gradle: org.bouncycastle:bcpkix-jdk15on:1.55" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-beans:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.3.8.RELEASE" level="project" />
@@ -135,6 +143,7 @@
     <orderEntry type="library" name="Gradle: org.springframework:spring-oxm:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-context-support:4.3.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-pool2:2.4.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jasypt:jasypt:1.9.2" level="project" />
     <orderEntry type="library" name="Gradle: org.bouncycastle:bcprov-jdk15on:1.55" level="project" />
     <orderEntry type="library" name="Gradle: net.minidev:json-smart:2.2.1" level="project" />
     <orderEntry type="library" name="Gradle: org.objenesis:objenesis:2.1" level="project" />

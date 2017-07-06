@@ -22,11 +22,8 @@ import org.springframework.context.annotation.Configuration;
 public class JasyptEncryptionConfiguration {
     private final static Logger LOG = LoggerFactory.getLogger(JasyptEncryptionConfiguration.class);
 
-    @Value("${pointcoin.app.alias}")
-    private String alias;
-
     @Bean("jasyptStringEncryptor")
-    public StringEncryptor stringEncryptor(@Value("${jasypt.encryptor.password}") String password) {
+    public StringEncryptor stringEncryptor(@Value("${jasypt.encryptor.password}") String password, @Value("${pointcoin.app.alias}") String alias) {
         PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
         
         SimpleStringPBEConfig config = new SimpleStringPBEConfig();

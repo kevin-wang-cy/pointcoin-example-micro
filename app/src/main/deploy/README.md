@@ -60,3 +60,43 @@ you are going to run above command. It would take longer time in
 the first run as it has to pull the image. I would suggest you pull
 the image first and only start run above command after it fully downloaded.
 
+## Deploy It Through Docker
+
+### First, create data volume for log
+```bash
+docker volume create log-data-volume
+```
+### Then, decide your encryptor passord and get encrptions with below command
+```bash
+docker run --rm com.upbchain.pointcoin/pointcoin-example-micro-app:1.0-SNAPSHOT \
+      encrypt pasword="<jasypt password>" input="<your password>"
+```
+### Last, start up application
+
+```bash
+docker run --name example-micro-remote-v1.0 -p 8080:8080 --restart=always \
+      -e JASYPT_ENCRYPTOR_PASSWORD="<jasypt password>"  \
+      -e POINTCOIN_MYSQL_HOST="<mysql db ipaddress>" "\
+      -e POINTCOIN_MYSQL_PORT=<mysql port> \
+      -e POINTCOIN_MYSQL_DATABASE=<pointcoindb> \
+      -e POINTCOIN_MYSQL_USER=<pointcoinapiremote> \
+      -e POINTCOIN_MYSQL_PASSWORD=ENC(jasypt encrypted password)  \
+      
+      -e POINTCOIN_UAA_TOKENKEY_URI=http://127.0.0.1:8080/uaa/oauth/token_key
+      
+      -v log-data-volume:/var/log/pointcoin \
+      com.upbchain.pointcoin/pointcoin-example-micro-app:1.0-SNAPSHOT
+```
+You can use below command if you want local mysql for test purpose:
+```bash
+docker run --name example-micro-local-v1.0 --link pointcoindb-mysql:mysql -p 8080:8080 \
+      -e JASYPT_ENCRYPTOR_PASSWORD="<jasypt password>"  \
+      -v log-data-volume:/var/log/pointcoin \
+      
+      -e POINTCOIN_UAA_TOKENKEY_URI=http://127.0.0.1:8080/uaa/oauth/token_key
+      
+      -v log-data-volume:/var/log/pointcoin \
+      com.upbchain.pointcoin/pointcoin-example-micro-app:1.0-SNAPSHOT
+
+```
+

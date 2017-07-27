@@ -114,6 +114,25 @@ With the right respository url configured, you can publish artifacts into maven 
     ```
     gradle publish -PnexusUsername=yourusername -PnexusPassword=yourpassowrd -PreleaseVersion=1.0.0
     ```
+## Actions to build docker images
+Docker images were generated automatically if you run above publish command, then you can use the standard _**docker push**_ 
+to push it to your docker registry.
+
+You can also build docker image for local test without publishing your artifacts to artifcatory with below command:
+1. Got the the app sub project
+1. Execute below command which will build the docker image with a tag of snapshot version
+    ```bash
+    gradle clean buildDockerImage
+    ```
+1. Or execute below command if you want to tag the image with a release version
+    ```
+    gradle clean buildDockerImage -PreleaseVersion=1.0.0
+    ```
+**Note**
+> the tags array in app/graddle.build#buildDockerImage task 
+defines the tags for the built image, free to change according 
+to your needs.
+
 
 ## Integrations
 

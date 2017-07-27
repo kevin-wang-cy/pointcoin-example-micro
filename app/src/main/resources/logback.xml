@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
-	<appender name="POINTCOIN_MICROSERVICE_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	<appender name="POINTCOIN_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<encoder>
 			<pattern>${FILE_LOG_PATTERN}</pattern>
 		</encoder>
-		<file>${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/${spring.application.name:-pointcoin-examplemicro}.log</file>
+		<file>${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/${spring.application.name:-pointcoin-app}.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
 			<!-- rollover daily -->
 			<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.%i</fileNamePattern>
@@ -16,7 +16,7 @@
 		</rollingPolicy>
 	</appender>
 	
-    <logger name="com.upbchain.pointcoin.examplemicro" level="DEBUG">
-        <appender-ref ref="POINTCOIN_MICROSERVICE_LOG"/>
+    <logger name="com.upbchain.pointcoin" level="DEBUG">
+        <appender-ref ref="POINTCOIN_LOG"/>
     </logger>
 </configuration>

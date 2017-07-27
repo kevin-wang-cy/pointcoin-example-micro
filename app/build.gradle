@@ -1,3 +1,18 @@
+buildscript {
+    repositories {
+        maven {
+            url "${nexusPublicUrl}"
+        }
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+       classpath('com.bmuschko:gradle-docker-plugin:3.0.11')
+    }
+}
+
 description = "Crypto Pointcoin Cloud Example Micro Service - App"
 
 springBoot {
@@ -44,13 +59,69 @@ task tarDeploy(type: Tar) {
     compression = Compression.GZIP
 }
 
+apply plugin: 'com.bmuschko.docker-remote-api'
+
+docker {
+    url = System.env.DOCKER_HOST
+    certPath = new File(System.env.DOCKER_CERT_PATH)
+}
+
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+
+task createDockerfile(type: Dockerfile) {
+
+    copy {
+        from("src/main/deploy") {
+            include 'Dockerfile'
+        }
+        into 'build/docker'
+        rename 'Dockerfile', 'Dockerfile.tmpl'
+        filter { line ->
+            line.startsWith('#') ? null : line
+        }
+    }
+
+    instructionsFromTemplate "build/docker/Dockerfile.tmpl"
+
+    doFirst {
+
+    }
+}
+
+task buildDockerImage(type: DockerBuildImage, dependsOn: [createDockerfile, tarDeploy]) {
+
+    inputDir = createDockerfile.destFile.parentFile
+
+    buildArgs = [POINTCOINAPP_NAME: rootProject.name.replaceFirst("pointcoin-", '')]
+
+    tags = ["kevinwangcy/upchain:${rootProject.name}-latest".toString(),
+            "kevinwangcy/upchain:${rootProject.name}-${project.version}".toString(),
+            "${project.group}/${project.archivesBaseName}:latest".toString(),
+            "${project.group}/${project.archivesBaseName}:${project.version}".toString()]
+
+    doFirst {
+        copy {
+            tarDeploy.outputs.files.forEach {File tarFile ->
+                from tarTree(resources.gzip(tarFile))
+                rename "${project.archivesBaseName}.jar", "app.jar"
+                rename "${project.archivesBaseName}.conf", "app.conf"
+                into "build/docker/target"
+            }
+        }
+    }
+}
+
 publishing {
     publications {
         mavenAppDeploy(MavenPublication) {
-           groupId "${project.group}"
-           artifactId "${project.archivesBaseName}-pkg"
-
+            groupId "${project.group}"
+            artifactId "${project.archivesBaseName}-pkg"
             artifact source: tarDeploy, extension: "tar"
         }
     }
+}
+
+publish {
+    dependsOn buildDockerImage
 }

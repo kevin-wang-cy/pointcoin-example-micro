@@ -119,6 +119,7 @@ Docker images were generated automatically if you run above publish command, the
 to push it to your docker registry.
 
 You can also build docker image for local test without publishing your artifacts to artifcatory with below command:
+
 1. Got the the app sub project
 1. Execute below command which will build the docker image with a tag of snapshot version
     ```bash
